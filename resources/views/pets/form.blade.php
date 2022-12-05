@@ -50,3 +50,11 @@
         <small style="color: red"> {{ $message }} </small>
     @enderror
 </label><br>
+
+<label>
+    sube una foto de tu mascota <br>
+    <input type="file" name="file" accept="image/*" value=" {{ old('Comments', $pet->file) }} ">
+    @error('Comments')
+        <small style="color: red"> {{ $message }} </small>
+    @enderror
+</label><br>

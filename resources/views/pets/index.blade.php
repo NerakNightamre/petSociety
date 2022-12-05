@@ -11,14 +11,16 @@
             </h2> &nbsp;
             </form>
         </div>
-        @auth
-            <div>
-                <a href="{{ route('pets.edit', $pet) }}">Editar</a>
-                <form action="{{ route('pets.destroy', $pet) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Eliminar</button>
-            </div>
-        @endauth
+        @if ($pet->owner_id == Auth::user()->id)
+            @auth
+                <div>
+                    <a href="{{ route('pets.edit', $pet) }}">Editar</a>
+                    <form action="{{ route('pets.destroy', $pet) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Eliminar</button>
+                </div>
+            @endauth
+        @endif
     @endforeach
 </x-layouts.app>

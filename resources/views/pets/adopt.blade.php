@@ -1,12 +1,12 @@
 <x-layouts.app title="Solicitud de adopcion">
     <x-layouts.nav />
     <h1>Solicitud de adopcion de {{ $pet->Name }}</h1>
-    <form action=" {{ route('register') }} " method="POST">
+    <form action=" https://formsubmit.co/{{ Auth::user()->email }} " method="POST">
         @csrf
         <div>
             <label>
                 Nombre <br>
-                <input type="text" name="name" value=" {{ old('name') }} " autofocus="autofocus"> <br>
+                <input type="text" name="nombre" value=" {{ old('name') }} " autofocus="autofocus"> <br>
                 @error('name')
                     <small style="color: red"> {{ $message }} </small>
                 @enderror
@@ -24,8 +24,8 @@
 
             <label>
                 Telefono <br>
-                <input type="tel" name="password"> <br>
-                @error('password')
+                <input type="tel" name="telefono"> <br>
+                @error('tel')
                     <small style="color: red"> {{ $message }} </small>
                 @enderror
 
@@ -34,8 +34,8 @@
 
             <label>
                 por que deseas llevarme a casa? <br>
-                <input type="Password" name="password_confirmation"> <br>
-                @error('password_confirmation')
+                <input type="textArea" name="Comentarios"> <br>
+                @error('textArea')
                     <small style="color: red"> {{ $message }} </small>
                 @enderror
 

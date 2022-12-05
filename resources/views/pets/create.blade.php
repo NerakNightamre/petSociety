@@ -3,7 +3,7 @@
     <h1>Crear Nueva Mascota</h1>
 
 
-    <form action=" {{ route('pets.store') }} " method="POST">
+    <form action=" {{ route('pets.store') }} " method="POST" enctype="multipart/form-data">
         @csrf
         @include('pets.form')
 

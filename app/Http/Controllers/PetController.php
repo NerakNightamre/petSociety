@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SavePetRequest;
+use App\Http\Requests\SaveRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PetController extends Controller
 {
@@ -19,7 +23,6 @@ class PetController extends Controller
         //creamos una variabel (u objeto) con en el cual se guaradaran la info desde la DB
         //metofo DB::table(Nombre de la tabla a consultar) con el metodo get
         $pets = Pet::get();
-
         //ahora retornaremos la vista desde aqui, pasandole como parametro la informacion o variable
         return view('pets.index', ['pets' => $pets]);
     }
@@ -36,8 +39,18 @@ class PetController extends Controller
 
     public function store(SavePetRequest $request)
     {
-        Pet::create($request->validated());
-
+        $image = $request->file('file')->store('public');
+        $url = Storage::url($image);
+        Pet::create([
+            'Name' => $request->input('Name'),
+            'owner_id' => Auth::user()->id,
+            'Species' => $request->input('Species'),
+            'Age' => $request->input('Age'),
+            'Gender' => $request->input('Gender'),
+            'Race' => $request->input('Race'),
+            'Comments' => $request->input('Comments'),
+            'file' => $url
+        ]);
         return to_route('pets.index');
     }
 
@@ -48,7 +61,7 @@ class PetController extends Controller
 
     public function update(SavePetRequest $request, Pet $pet)
     {
-        $pet->update($request->validated);
+        $pet->update($request->validated());
         return to_route('pets.show', $pet);
     }
 

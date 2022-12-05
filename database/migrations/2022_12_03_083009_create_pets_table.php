@@ -20,9 +20,10 @@ return new class extends Migration
             $table->string('Name');
             $table->integer('Age');
             $table->string('race');
-            $table->string('origin');
-            $table->integer('Owner');
+            $table->unsignedBigInteger('user_id');
             $table->longText('Comments');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
