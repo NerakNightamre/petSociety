@@ -60,7 +60,7 @@
             @else
                 <form action="{{ route('logout') }}" method="POST" class="btn btn-lg btn-primary px-3 d-none d-lg-block">
                     @csrf
-                    <button>LogOut</button>
+                    <button class="btn btn-primary px-3">LogOut</button>
                 </form>
             @endguest
 
