@@ -29,7 +29,8 @@ class SavePetRequest extends FormRequest
             'Age' => ['min:0', 'max:20', 'required'],
             'Species' => ['required'],
             'Race' => ['required'],
-            'Comments' => ['required']
+            'Comments' => ['required'],
+            'file' => ['required']
         ];
     }
 }

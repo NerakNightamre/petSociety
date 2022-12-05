@@ -53,8 +53,8 @@
 
 <label>
     sube una foto de tu mascota <br>
-    <input type="file" name="file" accept="image/*" value=" {{ old('Comments', $pet->file) }} ">
-    @error('Comments')
+    <input type="file" name="file">
+    @error('file')
         <small style="color: red"> {{ $message }} </small>
     @enderror
 </label><br>
