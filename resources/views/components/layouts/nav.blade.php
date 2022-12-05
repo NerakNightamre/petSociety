@@ -1,17 +1,3 @@
-{{-- <ul>
-    <li><a href="{{ route('home') }}">Home</a></li>
-    <li><a href="{{ route('pets.index') }}">quiero adoptar</a></li>
-    <li><a href="{{ route('adoption') }}">quiero dar en adopcion</a></li>
-    @guest
-        <li><a href="{{ route('register') }}">Registrate</a></li>
-        <li><a href="{{ route('login') }}">login</a></li>
-    @else
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button>LogOut</button>
-        </form>
-    @endguest
-</ul> --}}
 <div class="col-lg-6 text-center text-lg-right">
     <div class="d-inline-flex align-items-center">
         <a class="text-white px-3" href="">
@@ -34,7 +20,7 @@
 </div>
 <div class="row py-3 px-lg-5">
     <div class="col-lg-4">
-        <a href="" class="navbar-brand d-none d-lg-block">
+        <a href="{{ route('home') }}" class="navbar-brand d-none d-lg-block">
             <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Pet</span>Society</h1>
         </a>
     </div>
