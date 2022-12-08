@@ -1,4 +1,4 @@
-{{-- <label>
+<label>
     Nombre <br>
     <input type="text" name="Name" value=" {{ old('Name', $pet->Name) }} "> <br>
     @error('Name')
@@ -57,9 +57,9 @@
     @error('file')
         <small style="color: red"> {{ $message }} </small>
     @enderror
-</label><br> --}}
+</label><br>
 
-<div style="padding: 30px; background: #f6f6f6;">
+{{-- <div style="padding: 30px; background: #f6f6f6;">
     <h3 class="mb-4">Leave a comment</h3>
     <form>
         <div class="form-group">
@@ -83,5 +83,4 @@
             <input type="submit" value="Leave Comment" class="btn btn-primary px-3">
         </div>
     </form>
-</div>
-</div>
+</div> --}}
